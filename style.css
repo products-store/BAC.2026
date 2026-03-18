@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #38bdf8;
+    text-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+.countdown-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* لتجنب التكدس في الشاشات الصغيرة */
+}
+
+.circle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: rgba(30, 41, 59, 0.7);
+    border: 2px solid #38bdf8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.2), 
+                inset 0 0 15px rgba(56, 189, 248, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(56, 189, 248, 0.4), 
+                inset 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.number {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.label {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    font-weight: 700;
+}
+
+.hidden {
+    display: none;
+}
+
+#expired-message h2 {
+    color: #4ade80;
+    font-size: 3rem;
+    margin-top: 2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* استجابة الشاشات الصغيرة (الهواتف) */
+@media (max-width: 600px) {
+    .circle {
+        width: 90px;
+        height: 90px;
+    }
+    .number {
+        font-size: 2rem;
+    }
+    .countdown-wrapper {
+        gap: 1rem;
+    }
+    .title {
+        font-size: 1.8rem;
+    }
+}
