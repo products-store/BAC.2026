@@ -8,13 +8,33 @@
 
 body {
     font-family: 'Tajawal', sans-serif;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
+    
+    /* الخصائص الجديدة للخلفية المتغيرة */
+    background-color: #0f172a;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1.5s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+/* طبقة داكنة فوق الخلفية لضمان وضوح الأرقام */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6); 
+    z-index: -1;
 }
 
 .container {
@@ -94,6 +114,36 @@ body {
     50% { opacity: 0.5; }
     100% { opacity: 1; }
 }
+
+/* تنسيق زر تغيير الخلفية */
+.bg-btn {
+    position: fixed;    /* يجعله يطفو في مكان ثابت على الشاشة */
+    bottom: 10px;       /* المسافة من الحافة السفلية */
+    left: 10px;         /* المسافة من الحافة اليسرى */
+    
+    /* تصغير الحجم */
+    padding: 5px 12px;  /* تقليل المساحة الداخلية */
+    font-size: 0.8rem;  /* تصغير حجم الخط */
+    
+    /* الخصائص الأخرى للحفاظ على المظهر الأنيق */
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(30, 41, 59, 0.4); /* شفافية أكثر ليظهر بشكل هادئ */
+    border: 1px solid rgba(56, 189, 248, 0.5); /* إطار أنحف */
+    border-radius: 5px; /* حواف دائرية بسيطة */
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    z-index: 1000;      /* لضمان ظهوره فوق الطبقة الداكنة والخلفية */
+}
+
+.bg-btn:hover {
+    background: rgba(56, 189, 248, 0.3);
+    transform: scale(1.05);
+}
+
+
 
 /* استجابة الشاشات الصغيرة (الهواتف) */
 @media (max-width: 600px) {
